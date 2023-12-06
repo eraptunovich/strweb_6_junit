@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <category>
+        <name>Паста</name>
+        <description>Блюда из теста</description>
+        <dish>
+            <name>Спагетти карбонара</name>
+            <description>Итальянское блюдо с ароматным гуанчиале и яйцом</description>
+            <ingredients>Спагетти, гуанчиале (или панчетта), яйцо, пармезан, соль, перец</ingredients>
+            <price>350</price>
+            <spiciness>2</spiciness>
+            <vegetarian>false</vegetarian>
+        </dish>
+        <dish>
+            <name>Лазанья</name>
+            <description>Паста с мясным соусом и сыром</description>
+            <ingredients>Лазанья, говядина, томатный соус, моцарелла, пармезан, соль, перец</ingredients>
+            <price>400</price>
+            <spiciness>1</spiciness>
+            <vegetarian>false</vegetarian>
+        </dish>
+        <!-- Новые блюда -->
+        <dish>
+            <name>Равиоли с грибами</name>
+            <description>Тесто с начинкой из грибов и сыра</description>
+            <ingredients>Равиоли, грибы, сыр, масло, лук, соль, перец</ingredients>
+            <price>380</price>
+            <spiciness>1</spiciness>
+            <vegetarian>false</vegetarian>
+        </dish>
+        <dish>
+            <name>Феттуччини с лососем</name>
+            <description>Паста с лососем и сливочным соусом</description>
+            <ingredients>Феттуччини, лосось, сливочный соус, зелень, лимон, соль, перец</ingredients>
+            <price>450</price>
+            <spiciness>1</spiciness>
+            <vegetarian>false</vegetarian>
+        </dish>
+    </category>
+    <category>
+        <name>Салат</name>
+        <description>Легкие и освежающие блюда</description>
+        <dish>
+            <name>Греческий салат</name>
+            <description>Свежий салат с оливками и сыром фета</description>
+            <ingredients>Помидоры, огурцы, красный лук, оливки, сыр фета, оливковое масло, орегано</ingredients>
+            <price>250</price>
+            <spiciness>1</spiciness>
+            <vegetarian>true</vegetarian>
+        </dish>
+        <!-- Новый салат -->
+        <dish>
+            <name>Цезарь с курицей</name>
+            <description>Салат с курицей, сухариками и соусом Цезарь</description>
+            <ingredients>Куриное филе, салат, сухари, пармезан, соус Цезарь</ingredients>
+            <price>300</price>
+            <spiciness>1</spiciness>
+            <vegetarian>false</vegetarian>
+        </dish>
+    </category>
+    <category>
+        <name>Мясо</name>
+        <description>Сытные мясные блюда</description>
+        <dish>
+            <name>Стейк из говядины</name>
+            <description>Аппетитный стейк с розмарином и чесноком</description>
+            <ingredients>Говяжья вырезка, соль, перец, розмарин, чеснок, масло</ingredients>
+            <price>600</price>
+            <spiciness>2</spiciness>
+            <vegetarian>false</vegetarian>
+        </dish>
+        <!-- Новое мясное блюдо -->
+        <dish>
+            <name>Карри с креветками</name>
+            <description>Традиционное блюдо с креветками в карри-соусе</description>
+            <ingredients>Креветки, карри-паста, кокосовое молоко, овощи, рис</ingredients>
+            <price>500</price>
+            <spiciness>3</spiciness>
+            <vegetarian>false</vegetarian>
+        </dish>
+    </category>
+</menu>
+

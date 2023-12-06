@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 800px; /* Set a maximum width for the container */
+            margin: 0 auto; /* Center the container horizontally */
+        }
+
+        canvas {
+            max-width: 100%; /* Make the charts responsive within the container */
+            height: auto;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Menu</h1>
+
+    <!-- Iterate through menu categories -->
+    <div th:each="category, categoryIndex : ${menu.categories}" class="card">
+        <div class="card-header bg-primary text-white">
+            <h2 th:text="${category.name}"></h2>
+        </div>
+        <div class="card-body">
+            <p th:text="${category.description}"></p>
+
+            <!-- Accessing products within each category -->
+            <div class="row">
+                <div th:each="product : ${category.products}" class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${product.name}"></h5>
+                            <p class="card-text" th:text="${product.description}"></p>
+                            <p class="card-text" th:text="'Price: ' + ${product.price}"></p>
+                            <p class="card-text" th:text="'Spiciness: ' + ${product.spiciness}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts in a row -->
+    <div class="chart-container mt-5">
+        <!-- Bar Chart for Prices -->
+        <canvas id="priceBarChart"></canvas>
+
+        <!-- Bar Chart for Spiciness -->
+        <canvas id="spicinessBarChart"></canvas>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    // Your existing JavaScript code for chart creation goes here
+    var productNames = /*[[${menu.categories[0].products.![name]}]]*/;
+    var productPrices = /*[[${menu.categories[0].products.![price]}]]*/;
+    var productSpiciness = /*[[${menu.categories[0].products.![spiciness]}]]*/;
+
+    // Bar Chart for Prices
+    var priceCtx = document.getElementById('priceBarChart').getContext('2d');
+    var priceChart = new Chart(priceCtx, {
+        type: 'bar',
+        data: {
+            labels: productNames,
+            datasets: [{
+                label: 'Price',
+                data: productPrices,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // Bar Chart for Spiciness
+    var spicinessCtx = document.getElementById('spicinessBarChart').getContext('2d');
+    var spicinessChart = new Chart(spicinessCtx, {
+        type: 'bar',
+        data: {
+            labels: productNames,
+            datasets: [{
+                label: 'Spiciness',
+                data: productSpiciness,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
